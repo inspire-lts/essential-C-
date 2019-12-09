@@ -26,6 +26,7 @@ int main(void)
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i] << " ";
     }
+    cout << "hello";
     cout << endl;
     return 0;
 }
