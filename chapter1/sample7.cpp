@@ -1,28 +1,31 @@
 #include <iostream>
-#include <fstream>
-#include <vector>
 #include <string>
-
+#include <vector>
+#include <algorithm>
+#include <fstream>
 using namespace std;
 
-int main(){
-
-    ifstream infile("sample7_data.txt");
-    vector<string> vec;
+int main(void)
+{
+    ofstream outfile("data.txt");
     string word;
-    if(!infile){
-        cerr << "can't open this file!";
-        return 0;
+    while (cin >> word) {
+        outfile << word << ' ';
     }
-    else{
-        while(infile){
-            infile >> word;
-            vec.push_back(word);
-        }
-    }
-    
-    for(int i = 0; i < vec.size(); i++)
-        cout << vec[i];
+    outfile.close();
 
+    ifstream infile("data.txt");
+    vector<string> vec;
+    while (infile) {
+        infile >> word;
+        vec.push_back(word);
+    }
+    infile.close();
+
+    sort(vec.begin(), vec.end());
+    for (int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
