@@ -16,8 +16,7 @@ int main(void)
 
     ifstream infile("data.txt");
     vector<string> vec;
-    while (infile) {
-        infile >> word;
+    while (infile >> word) {    // 解决最后一行读取两次
         vec.push_back(word);
     }
     infile.close();
